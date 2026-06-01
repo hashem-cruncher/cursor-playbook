@@ -12,7 +12,8 @@ This document defines the absolute, non-negotiable rules for Cursor AI behavior,
 ##  2. Architectural & Engineering Standards
 - **Simplicity Over Complexity:** Always prefer the most readable and straightforward solution. Avoid overengineering.
 - **Modularity:** Keep functions and components small and focused on a single responsibility (SOLID principles).
-- **Containerization Readiness:** Write code assuming it will be containerized (e.g., Dockerized environments). Ensure environment variables are used for all configurations.
+- **Containerization Readiness:** Write 
+- code assuming it will be containerized (e.g., Dockerized environments). Ensure environment variables are used for all configurations.
 - **Clean Architecture:** Strictly separate concerns. UI components must not contain complex business logic or direct database queries.
 
 ##  3. Domain-Specific Rules
