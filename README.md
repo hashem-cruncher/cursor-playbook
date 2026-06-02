@@ -1,6 +1,12 @@
 # Cursor AI Engineering Playbook
 
-> **Central operating system** for AI-assisted full-stack development — strict rules, structured workflows, and production-grade prompts to maximize Cursor efficiency, reduce token use, and enforce enterprise-grade standards.
+![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
+![Cursor](https://img.shields.io/badge/Optimized%20for-Cursor%20AI-black?logo=cursor)
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)
+
+> **The definitive Cursor AI tutorial and playbook** for AI-assisted full-stack development — **Cursor AI best practices**, production-grade **Cursor prompts**, and **Cursor rules files** (`.cursorrules`, `.cursorignore`) to maximize efficiency, **reduce token usage**, and enforce enterprise-grade standards.
+
+This repository is a practical **Cursor Pro optimization** guide: structured workflows, copy-paste prompt libraries, and token-management techniques for teams that rely on Cursor daily. Whether you are onboarding a greenfield project or a legacy codebase, use this playbook to constrain AI output, cut context bloat, and ship with confidence.
 
 ---
 
@@ -376,3 +382,5 @@ flowchart TD
 ---
 
 *Maintained for highly efficient, token-optimized AI-assisted software engineering.*
+
+Contributions welcome — see [CONTRIBUTING.md](./CONTRIBUTING.md).
