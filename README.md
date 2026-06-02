@@ -17,25 +17,41 @@ Use these links daily to inject context or pull specific prompts without leaving
 
 ---
 
+## 🚀 Project Initialization: New vs. Existing
+
+Before writing any code, the AI must understand the environment. Follow the correct path based on your project state.
+
+### Scenario A: Starting a Brand New Project
+1. **Context & Rules:** Copy `@project-context-template.md` to the root as `project-context.md`. Copy the contents of `@ai-behavior-rules.md` into a local `.cursorrules` file.
+2. **Protection:** Setup `.cursorignore` immediately.
+3. **Planning Chat:** Use Chat (Smart Model) with the prompt: *"Read `@project-context.md`. Draft a file-tree structure and implementation plan. Do not write code yet."*
+4. **Scaffolding:** Once approved, use Composer to generate the boilerplate. 
+*(Full details in [`@project-start-workflow.md`](./02-workflows/project-start-workflow.md))*
+
+### Scenario B: Onboarding a Legacy / Existing Project
+Applying these strict rules to an existing codebase requires a phased approach to prevent conflicts with existing technical debt.
+1. **Rules Injection:** Create a `.cursorrules` file in the root and paste the contents of `@ai-behavior-rules.md`.
+2. **Reality-Based Context:** Copy `@project-context-template.md` to the root. **Crucial:** Clearly state the *Current Status* (e.g., "Legacy codebase with technical debt. Goal is phased refactoring").
+3. **Token Quarantine:** Ensure `.cursorignore` aggressively blocks old build folders, virtual environments, and large media files.
+4. **The Onboarding Chat:** Open a new Chat (Smart Model) and use this exact prompt:
+   > *"I am introducing you to an existing codebase. Read `@project-context.md`. Review the core files in the main directory. **Task:** Summarize the architecture and identify 3 major technical debts or rule violations based on our `.cursorrules`. **Constraint:** Do not write any new code or attempt to fix them yet."*
+5. **Incremental Application:** Do not ask the AI to "refactor the project". Use the [`@refactoring-workflow.md`](./02-workflows/refactoring-workflow.md) to update one file or module at a time safely.
+
+---
+
 ## ⚙️ Daily Operating Workflow
 
-### 1. Starting a New Session or Task
-Before writing any code or prompting the AI:
-- Ensure `.cursorignore` is configured to exclude build files (`node_modules`, `venv`, `.next`).
-- Open a **New Chat** (CMD/CTRL + L). Do not continue long, stale conversations.
-- **The Initial Prompt:** *"Read `@project-context.md`. I need to implement [Task]. Think step-by-step and provide an architectural plan before writing code."*
-
-### 2. Feature Development
+### 1. Feature Development
 - Use **Chat (Smart Model: Claude 3.5 Sonnet)** for planning and architectural decisions.
 - Use **Composer (Smart Model)** for scaffolding multi-file features based on the agreed plan.
-- Reference domain rules: Tell the AI to strictly follow `@frontend-rules.md` (e.g., Next.js, Tailwind) or `@backend-rules.md` (e.g., FastAPI, Service Layers).
+- Reference domain rules: Tell the AI to strictly follow `@frontend-rules.md` or `@backend-rules.md`.
 
-### 3. Debugging
+### 2. Debugging
 - Never paste a raw error without context.
 - Use the **Debugging Workflow**: Truncate the stack trace and use the templates from [`debugging-prompts.md`](./03-prompts/debugging-prompts.md).
 - Force the AI to explain the *Root Cause* before generating the fix to prevent architectural regression.
 
-### 4. Code Review & Commit
+### 3. Code Review & Commit
 - Before committing, run manual verification against the [`before-commit.md`](./06-checklists/before-commit.md) checklist.
 - Highlight the diff and use a **Fast Model** (e.g., Haiku) to generate conventional commit messages.
 
